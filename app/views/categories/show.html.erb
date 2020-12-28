@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @category.name %></h1>
+
+<p><%= @category.description %></p>
+
+<h1>List of tasks</h1>
+
+<%= link_to 'New Task', new_task_path %><br>
+
+<% if @tasks.empty? %>
+	<p>No task created to show.</p>
+<% end %>
+
+<% @tasks.each do |task| %>
+	<h2><%= link_to task.title, task %></h2>
+	<p><%= task.description %></p>
+<% end %>
+
+<p>
+	<%= link_to 'Edit', edit_category_path(@category) %> |
+	<%= link_to 'Delete', @category, method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task Management</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="field">
+      <%= form_tag tasks_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:id] %>
+        <%= submit_tag "Search" %>
+      <% end %>
+
+      <%= link_to "Advanced Search", new_search_path %>
+    </div>
+    
+    <%= yield %>
+
+    <div class="field">
+      <%= link_to 'Tasks', tasks_path %> |
+      <%= link_to 'Categories', categories_path %>
+    </div>
+  </body>
+</html>

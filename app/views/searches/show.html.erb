@@ -1,0 +1,13 @@
+<h1>Search Result</h1>
+<p><%= link_to 'Continue Searching', new_search_path %></p>
+
+<% if @search.search_tasks.empty? %>
+	<p>No Records Found</p>
+<% else %>
+	<% @search.search_tasks.each do |c| %>
+		<div class="div">
+			<h1><%= link_to c.title, task_path %></h1>
+			<p><%= c.description %></p>
+		</div>
+	<% end %>
+<% end %>
